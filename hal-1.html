@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Math</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- header -->
+<header>
+    <h2 class="logo">House Math</h2>
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="contact.html">contact</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <button class="btnlogin-popup">login</button>
+    </nav>
+</header>
+
+<body>
+</body>
+<!-- halaman login -->
+<div class="wrapper">
+    <div class="form-box login">
+        <h2>Login</h2>
+        <!-- <form action="menu.html"> -->
+        <div id="message"></div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" id="emailInput" required>
+            <label>Email</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" id="pwd" required>
+            <label>Sandi</label>
+        </div>
+        <div class="ingat">
+            <label><input type="checkbox" id="chk">
+                Lihat Sandi</label>
+            <a href="menu.html" id="menuLink"><button id="tombol" class="btnlewati"> Lewati>> </button></a>
+        </div>
+
+        <button type="submit" class="btn" id="btnLogin">Masuk</button>
+        </form>
+    </div>
+</div>
+<script>
+    const pwd = document.getElementById("pwd");
+    const chk = document.getElementById("chk");
+    const tambahNilai = document.getElementById("tambahNilai");
+
+    chk.onchange = function (e) {
+        pwd.type = chk.checked ? "text" : "password";
+    };
+    // Misalkan validasi login berhasil
+    if (loginBerhasil) {
+        localStorage.clear(); // Menghapus semua data dari localStorage setelah login berhasil
+        window.location.href = 'menu.html'; // Redirect ke halaman setelah login
+    } else {
+        // Tindakan jika login gagal
+        console.log('Login gagal. Silakan coba lagi.');
+    };
+
+    // Di hal-1.html atau halaman lain setelah login berhasil
+    localStorage.setItem('isLoggedIn', 'true');
+    document.addEventListener('DOMContentLoaded', function () {
+        const tombol = document.getElementById('tombol');
+        let jumlahKlik = localStorage.getItem('jumlahKlik') ? parseInt(localStorage.getItem('jumlahKlik')) : 0;
+
+        tombol.addEventListener('click', function () {
+            jumlahKlik++;
+
+            if (jumlahKlik >= 5) {
+                tombol.style.display = 'none'; // Sembunyikan tombol setelah 5 kali klik
+                localStorage.setItem('hitungHidden', 'true'); // Simpan informasi bahwa tombol harus disembunyikan
+            }
+
+            localStorage.setItem('jumlahKlik', jumlahKlik); // Simpan jumlah klik di localStorage
+        });
+
+        // Cek apakah tombol harus disembunyikan saat halaman dimuat
+        if (localStorage.getItem('hitungHidden') === 'true') {
+            tombol.style.display = 'none';
+        }
+    });
+</script>
+
+<script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

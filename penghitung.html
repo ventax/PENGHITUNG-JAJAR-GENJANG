@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Alat Penghitung Luas Jajar Genjang</title>
+</head>
+<header>
+    <h2 class="logo">House Math</h2>
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="contact.html">contact</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="menu.html">Menu</a>
+        <!-- <button class="btnmenu-popup"><a href="menu.html">Menu</a></button> -->
+    </nav>
+</header>
+
+<body>
+    <center>
+        <div style="color: white; font-size: 50px; font-family: Poppins; font-weight: 600; word-wrap: break-word">
+            Menghitung Luas Jajar Genjang</div>
+        <!-- <label for="" placeholder="Masukan Alas Jajar Genjang">Alas Jajar Genjang</label><br> -->
+        <div style="color: white; font-size: 20px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Alas
+            Jajar Genjang</div>
+        <input type="number" id="alas" class="box"><br>
+        <!-- <label for="Tinggi Jajar Genjang">Tinggi Jajar Genjang</label><br> -->
+        <div style="color: white; font-size: 20spx; font-family: Poppins; font-weight: 500; word-wrap: break-word">
+            Tinggi
+            Jajar Genjang</div>
+        <input type="number" id="tinggi" class="box"><br><br>
+        <button class="btn-hitung" id="hitung">Hitung</button>
+        <div id="output"></div>
+        <script>
+            localStorage.clear();
+            const alas = document.getElementById('alas');
+            const tinggi = document.getElementById('tinggi');
+            const hitung = document.getElementById('hitung');
+            const output = document.getElementById('output');
+
+            hitung.addEventListener('click', function () {
+                let a = alas.value;
+                let t = tinggi.value;
+                let l = a * t;
+                output.innerHTML = `Luas Jajar Genjang dari alas ${a} cm dikali tinggi ${t} cm adalah ${l} cm2`;
+            });
+
+        </script>
+        <img src="Ilustrasi-muhammad-ibn-musa-IST_ratio-16x9-1.jpg" class="ibnmusa">
+        <br>
+        <a href="deskripsi1.html"><button class="btnm" id="btnLogin">Deskripsi</button></a>
+        <br><br>
+        <a href="sejarah1.html"><button class="btnm" id="btnLogin">Sejarah</button></a>
+        <a href=""></a>
+    </center>
+    <a href="menu.html"><button class="btnkembaliwar" id="btnLogin">Kembali</button></a>
+</body>
+
+</html>
